@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1280px, initial-scale=1.0">
+    <title>DPI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            width: 40%;
+            position: relative;
+            margin: auto;
+            text-align: center;
+            border: 1px solid silver;
+            padding: 10px;
+            padding-top: 100px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+            outline: none;
+            font-size: 17px;
+            font-family: monospace;
+        }
+
+        #btn {
+            width: 50%;
+            padding: 10px;
+            background: #3e95df;
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            border: 1px solid silver;
+            margin: 20px 0;
+        }
+
+        #logo {
+            width: 60px;
+            position: absolute;
+            top: 20px;
+            left: 47px;
+        }
+
+        .name {
+            font-size: 27px;
+            display: inline;
+            position: absolute;
+            top: 32px;
+            left: 108px;
+            font-family: cursive;
+        }
+        .title{
+            font-size: 18px;
+            font-family: cursive;
+            border: 1px solid rgb(163, 163, 163);
+            margin: 0 22% ;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        @media (max-width:600px){
+            .form-container{
+                width: 100%;
+                border: none;
+            }
+            .name{
+                font-size: 4.5vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    {% if messages %}
+<ul class="p-0 m-0">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert alert-success d-flex align-items-center w-100 m-0 " role="alert"{% endif %}>{{ message }}</li>
+   
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="form-container">
+        <div class="head">
+            <img src="{% static 'gallery/dpi.png' %}" alt="logo" id="logo">
+            <div class="name">
+                Dinajpur Polytechnic Institute
+            </div>
+        </div>
+        <div class="title">
+            Student ID Card Form
+        </div>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" id="" placeholder="Name" required>
+            <input type="text" name="bRoll" id="" placeholder="Board Roll NO." required>
+            <input type="text" name="rNo" id="" placeholder="Registration NO." required>
+            <input type="text" name="iRoll" id="" placeholder="Institute Roll">
+            <input type="text" name="technology" id="" placeholder="Technology" value="Computer" required>
+            <input type="text" name="shift" id="" placeholder="Shift" value="1st" required>
+            <input type="text" name="group" id="" placeholder="Group" value="B" required>
+            <input type="text" name="session" id="" placeholder="" value="21-22" required>
+            <input type="text" name="fname" id="" placeholder="Father's Name" required>
+            <input type="text" name="mname" id="" placeholder="Mother's name" required>
+            <input type="text" name="village" id="" placeholder="Village" required>
+            <input type="text" name="pOffice" id="" placeholder="Post Office" required>
+            <input type="text" name="upazila" id="" placeholder="Upazila" required>
+            <input type="text" name="district" id="" placeholder="District" required>
+            <input type="text" name="mNo" id="" placeholder="Mobile No." required>
+            <input type="submit" value="Submit" name="" id="btn" >
+        </form>
+    </div>
+</body>
+
+</html><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
